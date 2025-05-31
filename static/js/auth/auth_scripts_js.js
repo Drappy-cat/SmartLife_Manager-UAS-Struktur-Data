@@ -1,13 +1,13 @@
 // ===== NAVIGATION FUNCTIONS =====
 function goToRegister() {
     // Dalam implementasi nyata, ini akan redirect ke halaman register
-    window.location.href = 'register.html';
+    window.location.href = 'register_page.html';
     // Untuk demo: alert('Redirect to register page');
 }
 
 function goToLogin() {
     // Dalam implementasi nyata, ini akan redirect ke halaman login
-    window.location.href = 'login.html';
+    window.location.href = 'login_page.html';
     // Untuk demo: alert('Redirect to login page');
 }
 

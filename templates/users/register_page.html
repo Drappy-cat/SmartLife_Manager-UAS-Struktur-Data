@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -339,6 +340,9 @@
     </style>
 </head>
 <body>
+<div class="text-center py-3" style="background-color: #f8f9fa; border-bottom: 1px solid #dee2e6;">
+  <h4 style="margin: 0; color: #5a5a5a; font-weight: 700;">SmartLife Manager</h4>
+</div>
     <div class="register-container">
         <div class="register-card">
             <div class="row g-0 h-100">
@@ -346,28 +350,24 @@
                 <div class="col-lg-6">
                     <div class="form-section">
                         <h3>Registration</h3>
-                        <form id="registerForm">
+                       <form id="registerForm" method="post" action="{% url 'users:register' %}">
+                           {% csrf_token %}
                             <div class="form-group">
                                 <i class="fas fa-user form-icon"></i>
-                                <input type="text" class="form-control" id="username" placeholder="Username" required>
-                            </div>
-                            <div class="form-group">
-                                <i class="fas fa-envelope form-icon"></i>
-                                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                {{ form.username }}
+                                {% if form.username.errors %}<div class="invalid-feedback d-block" style="font-size: 0.8rem; color: #dc3545; text-align: left;">{% for error in form.username.errors %} {{error}} {% endfor %}</div>{% endif %}
                             </div>
                             <div class="form-group">
                                 <i class="fas fa-lock form-icon"></i>
-                                <input type="password" class="form-control" id="password" placeholder="Password" required>
+                                {{ form.password1 }} {% if form.password1.errors %}<div class="invalid-feedback d-block" style="font-size: 0.8rem; color: #dc3545; text-align: left;">{% for error in form.password1.errors %} {{error}} {% endfor %}</div>{% endif %}
                                 <div class="password-strength">
                                     <div class="strength-text">Password Strength: <span id="strength-text">Enter password</span></div>
-                                    <div class="strength-bar">
-                                        <div class="strength-fill" id="strength-fill"></div>
-                                    </div>
+                                    <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <i class="fas fa-lock form-icon"></i>
-                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+                                {{ form.password2 }} {% if form.password2.errors %}<div class="invalid-feedback d-block" style="font-size: 0.8rem; color: #dc3545; text-align: left;">{% for error in form.password2.errors %} {{error}} {% endfor %}</div>{% endif %}
                                 <div id="password-match" class="mt-2" style="font-size: 0.8rem;"></div>
                             </div>
                             
@@ -381,15 +381,6 @@
                             <button type="submit" class="btn btn-primary">Register</button>
                         </form>
                         
-                        <div class="social-login text-center">
-                            <p class="text-muted mb-3">or register with social platforms</p>
-                            <div>
-                                <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
-                                <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="social-btn github"><i class="fab fa-github"></i></a>
-                                <a href="#" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -404,7 +395,7 @@
                         <div class="welcome-content">
                             <h2>Welcome Back!</h2>
                             <p>Already have an account?</p>
-                            <a href="#" class="btn btn-outline-light btn-lg" onclick="goToLogin()">Login</a>
+                            <a href="{% url 'users:login' %}" class="btn btn-outline-light btn-lg">Login</a>
                         </div>
                     </div>
                 </div>

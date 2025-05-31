@@ -1,0 +1,184 @@
+/* static/css/tasks_styles.css */
+
+/* ===== PENGATURAN DASAR & BODY (TEMA UTAMA UNGU-BIRU) ===== */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; /* Gradien utama */
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333; /* Warna teks default untuk konten di atas background terang */
+    /* padding-top: 80px; /* Sesuaikan jika navbar fixed di setiap halaman */
+    padding-bottom: 20px;
+}
+
+/* Container utama untuk halaman fitur */
+.feature-page-container { /* Kelas umum untuk semua halaman fitur */
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.08); /* Background lembut di atas gradien body */
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    color: #fff; /* Teks utama di container ini berwarna putih */
+}
+
+.feature-page-container h2,
+.feature-page-container h4 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.feature-page-container h2 i,
+.feature-page-container h4 i {
+    margin-right: 10px;
+    color: rgba(255,255,255,0.85);
+}
+
+.feature-page-container .alert-info { /* Info struktur data */
+    background-color: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid #a29bfe; /* Aksen ungu muda */
+    color: #f0f0f0;
+    border-radius: 8px;
+}
+.feature-page-container .alert-info i {
+    margin-right: 8px;
+}
+.feature-page-container hr {
+    border-color: rgba(255,255,255,0.2) !important;
+}
+
+
+/* Kartu Konten (untuk form, daftar item, dll.) */
+.content-card {
+    background: rgba(255, 255, 255, 0.98);
+    color: #333; /* Teks di dalam kartu menjadi gelap */
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+.content-card h4 {
+    color: #667eea; /* Warna aksen biru tema */
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.content-card h4 i { color: #667eea; }
+
+
+/* Form Input di dalam Kartu */
+.content-card .form-control {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+}
+.content-card .form-control:focus {
+    background: white;
+    border-color: #667eea; /* Aksen biru saat fokus */
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+.content-card .form-label {
+    color: #555;
+    font-weight: 500;
+}
+
+/* Tombol Utama (misal: Tambah, Simpan) */
+.btn-main-action {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradien tema utama */
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+.btn-main-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Tombol Aksi Sekunder (misal: Proses, Edit) */
+.btn-secondary-action {
+    background: linear-gradient(135deg, #764ba2 0%, #5a3a7e 100%); /* Variasi gradien ungu */
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}
+.btn-secondary-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(118, 75, 162, 0.3);
+}
+
+
+/* Styling untuk List Group Item (digunakan di tasks, schedule, notes, contacts) */
+.list-group-item.feature-item {
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+.list-group-item.feature-item:hover {
+    transform: translateX(3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.list-group-item.next-item-highlight { /* Untuk highlight item berikutnya, misal di antrean tugas */
+    background-color: rgba(102, 126, 234, 0.1) !important;
+    border-left: 5px solid #667eea; /* Aksen biru */
+    font-weight: bold;
+    color: #5a67d8;
+}
+.list-group-item.next-item-highlight .badge { /* Badge untuk item yang di-highlight */
+    background-color: #667eea !important;
+    color: white;
+}
+
+/* Styling untuk pesan Django messages */
+.messages-container .alert { max-width: 100%; margin-bottom: 15px; }
+.alert.alert-success { background-color: #d1e7dd; color: #0a3622; border-left: 5px solid #0f5132;}
+.alert.alert-info    { background-color: #cff4fc; color: #055160; border-left: 5px solid #055160;}
+.alert.alert-warning { background-color: #fff3cd; color: #664d03; border-left: 5px solid #664d03;}
+.alert.alert-danger, .alert.alert-error   { background-color: #f8d7da; color: #58151c; border-left: 5px solid #58151c;}
+
+.no-items-message {
+    background-color: rgba(255, 255, 255, 0.9); color: #6c757d; padding: 30px;
+    border-radius: 10px; text-align: center; border: 1px dashed #d1d9e1;
+}
+.no-items-message i { font-size: 2.5rem; margin-bottom: 10px; display: block; color: #adb5bd; }
+
+/* Navbar (jika Anda menggunakannya di setiap halaman mandiri) */
+.navbar.app-feature-navbar {
+    background: linear-gradient(135deg, #6a7fef 0%, #7f53ac 100%) !important; /* Gradien tema utama */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030; */
+}
+.navbar.app-feature-navbar .navbar-brand,
+.navbar.app-feature-navbar .nav-link {
+    color: rgba(255,255,255,0.9) !important;
+}
+.navbar.app-feature-navbar .nav-link:hover {
+    color: #fff !important;
+}
+.navbar.app-feature-navbar .btn-link.nav-link { /* Tombol logout */
+    color: rgba(255,255,255,.75) !important;
+}
+.navbar.app-feature-navbar .btn-link.nav-link:hover {
+    color: #fff !important;
+}

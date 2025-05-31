@@ -30,8 +30,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig', # Aplikasi 'users' Anda
-    # Tambahkan aplikasi lain di sini nanti, misalnya 'tasks', 'notes', dll.
+    'users.apps.UsersConfig',
+    'tasks.apps.TasksConfig',
+    'schedule.apps.ScheduleConfig',
+    'notes.apps.NotesConfig',
+    'goals.apps.GoalsConfig',
+    'contacts.apps.ContactsConfig',
+    'education.apps.EducationConfig',
+    'profiles.apps.ProfilesConfig'
+    # Tambahkan aplikasi lain di sini nanti, misalnya 'notes', dll.
 ]
 
 MIDDLEWARE = [
@@ -129,7 +136,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# KONFIGURASI URL UNTUK LOGIN & LOGOUT (Flask-Login equivalent)
+# KONFIGURASI URL UNTUK LOGIN & LOGOUT
 LOGIN_URL = 'users:login' # Nama URL (dengan namespace 'users') untuk halaman login
 LOGIN_REDIRECT_URL = 'users:dashboard' # Ke mana diarahkan setelah login berhasil (jika tidak ada parameter 'next')
 LOGOUT_REDIRECT_URL = 'home' # Ke mana diarahkan setelah logout (pastikan URL 'home' ada)
